@@ -1,0 +1,44 @@
+1) Go to Apache_Home/conf/extra folder copied httpd-ssl.conf to Apache_Home/conf
+       cd Apache_Home/conf/extra
+	   cp httpd-ssl.conf  ../
+	   mv httpd-ssl.conf ssl.conf
+ 2) open ssl.conf
+    and update the following entires
+	Listen 4443
+	<VirtualHost mybilling.com:4443>
+
+	#   General setup for the virtual host
+	DocumentRoot "/u01/app/oracle/docs"
+	ServerName mybilling.com:4443
+	ServerAdmin admin@gmail.com
+	ErrorLog "/u01/app/oracle/apache2/logs/ssl_error_log"
+	TransferLog "/u01/app/oracle/apache2/logs/ssl_access_log"
+
+3) generate ssl certificate and configure 
+    1) openssl genrsa -out server1.key 1024   (this generates private certificate)
+	2) generate the CSR (certificate signing request) certificate 
+	    openssl req -new -key server1.key -out server1.csr
+	3) openssl x509 -in server1.csr -out server1.crt -req -signkey server1.key -days 365  
+	     ( this is for generating selfsigned certificate)
+4)configre private and public key to ssl.conf file
+    
+       1) SSLCertificateFile /u01/app/oracle/apache2/conf/ssl/server1.crt
+       2) SSLCertificateKeyFile /u01/app/oracle/apache2/conf/ssl/server1.key
+	   3) vi
+	
+5) add the followig entry to httpd.conf to load ssl.conf file during the apache startup
+      Include conf/ssl.conf
+
+6) open ssl.conf add the following entry after <VirtualHost *:4443>
+    <Directory "/u01/app/oracle/docs">
+    AllowOverride All
+    Order allow,deny
+    Allow from all
+    </Directory>
+7) check apache configuration with
+   ./apachectl -t
+   ./apachectl -k stop
+   ./apachectl -k start
+   
+8) now access the applcition with https://
+    https://apacheserverip:4443/index.html

@@ -1,0 +1,17 @@
+keytool -genkey -alias <alias> -keyalg RSA -keysize 1024 -sigalg SHA256withRSA -dname <dn> -keypass <password> -keystore <keystore> -storepass <password>
+
+
+In summary, SHA2 signed certificates and ciphers are supported under these conditions with Oracle WebLogic Server:
+•	WebLogic Server 10.3.6 and prior versions do not support SHA2 signed certificates or cipher suites when using the default Certicom SSL.
+•	The following WebLogic Server versions support SHA2 cipher suites when using JSSE SSL and the following JDK versions:
+o	WLS 10.3.6 with JDK 7 and JSSE enabled using the JDK's JSSE provider
+o	WLS 12.1.1 with JDK 7 and JSSE enabled using the JDK's JSSE provider
+o	WLS 12.1.2 (or later) with JDK 7 (or later) and JSSE enabled using the JDK's JSSE provider
+•	The following WebLogic Server versions support SHA2 signed certificates when using JSSE SSL and the following JDK versions:
+o	WLS 10.3.3 - 10.3.6 with JDK 6 and JSSE enabled using the JDK's JSSE provider
+o	WLS 10.3.6 with JDK 7 and JSSE enabled using the JDK's  JSSE provider
+o	WLS 12.1.1 with JDK 7 and JSSE enabled using the JDK's  JSSE provider
+
+
+https://docs.oracle.com/cd/E24329_01/web.1211/e24375/basics.htm#BRDGE126
+(messsage bridge docs)

@@ -1,0 +1,49 @@
+ export JAVA_HOME or source setDomainEnv.sh
+ 
+ 1) generate keystore file
+keytool -genkey -alias billing -keystore billing.jks -storepass changeit -keypass changeit -keyalg rsa -keysize 2048 -validity 365
+syn:-kkeytool -genkey -alias aliasname -keystore keystroname.jks -storepass password -keypass password -keyalg rsa -keysize 2048 -validity 365
+
+to list the jks file (JKS stands for Java keystore file)
+
+keytool -v -list -keysotre keystorefile.jks
+	
+
+ 2) create CSR file and send to CA authority
+
+keytool -certreq -alias billing -keystore billing.jks -storepass changeit -keypass changeit -file file.csr  
+
+Note : CSR stands for Certificate Signining Request
+ 
+ 3) CA Authority will issue server certificate(public certificate) along with that they issue
+    root and intermediate certificate ( this will be chain certificate)
+
+
+ 4) Once we receive the chain certificate we will import that certificate to keystore file
+   keytool -import -alias billing -storepass changeit -keypass changeit -keystore billing.jks -file file.crt
+   keytool -import -alias root -storepass changeit -keypass changeit -keystore billing.jks -file root.crt
+   keytool -import -alias inter -storepass changeit -keypass changeit -keystore billing.jks -file inter.crt
+   
+   Note: if you wont give alias name then the keytool will take defult alias name as "mykey"
+   
+ 5) configure SSL certificate to your weblogic servers from admin console through keystore and SSL tab
+ 
+ 6) enable SSL listen port if not enable and restart the server or servers
+ 
+ 7) monitor the server logs whether certificate is loading 
+ 
+ 8) access the application by using https protocol
+
+you need to do step1, 5, 6, 7 and 8
+
+to generate the root and intermediate certtificate go to this site
+https://getacert.com/signacert.htmlhttps://getacert.com/signacert.html
+
+how you create the SSL certificates through openssl
+------------------------------------------------------------------------
+openssl x590 -in application name.cer -noout -text
+openssl req -new -newkey rsa:2048 -nodes -keyout application name.key -out application name.csr
+
+
+
+
