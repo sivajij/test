@@ -7,3 +7,4 @@
   *kubectl get deployments
 ##trouble shot steps
 *kubectl log <POD_NAME>
+*kubctl exec -it <PODNAME> --bin/bash
