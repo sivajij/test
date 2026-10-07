@@ -1,0 +1,38 @@
+Root Cause of Charges
+ The charges originated from [Nat Gateway resources ] that were provisioned in the [ohio] region. These resources continued running i was not sure on date but as far i remaind was thye were running since midmonth of july without my knowledge. The usage was not intentional, and I was unaware that leaving these resources active would generate ongoing costs.
+
+Breakdown of Unintended Charges
+The charges for the past months primarily came from the NAT Gateway data processing and hourly usage costs, along with related network traffic. Unfortunately, these services were not actively used, and the spend was accidental rather than business-related.
+
+Reason for Non-Payment
+The amount billed is unexpectedly high compared to my intended usage (which was supposed to remain within Free Tier). As this was an unintended expense, I am unable to make payment for such a large unplanned bill.and i was not a person who can afford such charges 
+
+Preventative Measures
+I have already taken steps to avoid such issues in the future:
+
+I havestopped and terminated unused resources.
+Reviewed Free Tier and pricing documentation to fully understand usage boundaries.
+Documentation Review & Commitments
+
+Yes, I have reviewed AWS documentation for the services in question.
+Yes, I agree to carefully review pricing structures for resources before launching them in the future.
+Yes, I have created internal processes to guide developers/engineers to terminate resources promptly after use.
+Yes, I will ensure Free Tier and pricing documentation is reviewed thoroughly before using any service.
+Monitoring Going Forward
+I will closely monitor my account using the following AWS tools:
+
+AWS Budgets for custom cost thresholds.
+CloudWatch Billing Alarms for real-time notifications.
+AWS CloudTrail for tracking resource creation and usage.
+AWS Cost Anomaly Detection to identify unusual spending patterns.
+Request for Waiver
+Since these charges were the result of an honest mistake and not due to active business use, I kindly request a one-time waiver of these unintended charges. I have demonstrated accountability and put proper safeguards in place to ensure this does not recur.
+
+Your support and understanding in this matter would mean a lot. I respectfully request that these charges be waived immediately.
+
+Thank you for your consideration.
+
+Sincerely,
+[Your Full Name]
+[Your AWS Account ID]
+
