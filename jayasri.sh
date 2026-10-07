@@ -1,3 +1,4 @@
 #!/bin/bash
 echo "how  r You"
-jfljfkdjfkj
+hello everyone
+THIS I/ KNDFJKSFDJFN M, Z XVNKLSDANFJKLDNJLKF
